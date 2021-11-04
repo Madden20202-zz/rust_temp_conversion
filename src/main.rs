@@ -2,6 +2,7 @@ use std::io;
 
 fn main() {
     ask_scale();
+    ask_degrees();
 }
 
 fn ask_scale() {
@@ -19,5 +20,17 @@ fn ask_scale() {
         .read_line(&mut scale)
         .expect("Please input C or F");
     println!("You put {}", scale);
+}
+
+fn ask_degrees() {
+
+    let mut degree = String::new();
+
+    println!("What is the Tempurature?");
+    io::stdin()
+        .read_line(&mut degree)
+        .expect("Please input a number");
+    
+    println!("You put {}", degree)
 
 }
