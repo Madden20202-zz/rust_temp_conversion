@@ -27,16 +27,30 @@ fn ask_degrees() {
 
     let mut degree = String::new();
 
-    println!("What is the Tempurature?");
-    io::stdin()
-        .read_line(&mut degree)
-        .expect("Please input a number");
-
-    let degree: i16 = match degree.trim().parse() {
-        Ok(num) => num,
-        Err(_) => println!("Please input a number"),
-    };
+    loop {
+        println!("What is the Tempurature?");
+        io::stdin()
+            .read_line(&mut degree)
+            .expect("Please input a number");
     
-    println!("You put {}", degree);
+        let degree: i16 = match degree.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
+        println!("You put {}", degree);
+        break;
+    }
+    // println!("What is the Tempurature?");
+    // io::stdin()
+    //     .read_line(&mut degree)
+    //     .expect("Please input a number");
+
+    // let degree: i16 = match degree.trim().parse() {
+    //     Ok(num) => num,
+    //     Err(_) => continue,
+    // };
+    
+    // println!("You put {}", degree);
 
 }
