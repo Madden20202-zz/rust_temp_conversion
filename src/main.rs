@@ -1,3 +1,10 @@
+use std::io;
 fn main() {
-    println!("Hello, world!");
+    ask_scale();
+}
+
+fn ask_scale() {
+    println!("Will we be using Celcius or Fahrenheit?");
+    println!("Input C or F");
+    
 }
