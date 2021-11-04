@@ -27,8 +27,9 @@ fn ask_degrees() {
 
     let mut degree = String::new();
 
+    println!("What is the Tempurature?");
+
     loop {
-        println!("What is the Tempurature?");
         io::stdin()
             .read_line(&mut degree)
             .expect("Please input a number");
@@ -40,6 +41,7 @@ fn ask_degrees() {
         };
 
         println!("Did you say {}", degree);
+        break;
     }
 
 }
