@@ -1,4 +1,5 @@
 use std::io;
+use std::cmp::Ordering;
 
 fn main() {
     ask_scale();
@@ -30,7 +31,12 @@ fn ask_degrees() {
     io::stdin()
         .read_line(&mut degree)
         .expect("Please input a number");
+
+    let degree: i16 = match degree.trim().parse() {
+        Ok(num) => num,
+        Err(_) => println!("Please input a number"),
+    };
     
-    println!("You put {}", degree)
+    println!("You put {}", degree);
 
 }
