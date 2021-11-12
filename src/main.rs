@@ -58,17 +58,6 @@ fn ask_degrees() {
 }
 
 // These will print different messages based on what is wrong
-// fn check_scale(scale: String) {
-
-//     if scale == "C" | "c" {
-//         println!("You picked: Celcius");        
-//     } 
-
-//     if scale == "F" | "f" {
-//         println!("You picked: Farenheit");
-//     }
-// }
-
 fn number_error() {
     println!("Please use c, C, f, or F");
 }
