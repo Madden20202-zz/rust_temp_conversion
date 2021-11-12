@@ -15,17 +15,20 @@ fn ask_scale() {
     println!("Will we be using Celcius or Fahrenheit?");
     println!("Input C or F");
 
-    // changes the scale value and gives an error message if not string
-    io::stdin()
-        .read_line(&mut scale)
-        .expect("Please input C or F");
-    
-    let scale: i16 = match scale.trim().parse() {
-        Ok(num) => num,
-        Err(_) => return number_error(),
+    loop {
+        // changes the scale value and gives an error message if not string
+        io::stdin()
+            .read_line(&mut scale) 
+            .expect("Error reading line");
 
-    };
-    println!("You put {}", scale);
+        let scale: i16 = match scale.trim().parse() {
+            Ok(num) => num,
+            Err(_) => return number_error(),
+
+        };
+        println!("You put {}", scale);
+        break;
+    }
 }
 
 fn ask_degrees() {
@@ -55,11 +58,21 @@ fn ask_degrees() {
 }
 
 // These will print different messages based on what is wrong
+// fn check_scale(scale: String) {
+
+//     if scale == "C" | "c" {
+//         println!("You picked: Celcius");        
+//     } 
+
+//     if scale == "F" | "f" {
+//         println!("You picked: Farenheit");
+//     }
+// }
+
 fn number_error() {
-    println!("Please use c, C, f, or F")
+    println!("Please use c, C, f, or F");
 }
 
 fn word_error() {
-
     println!("Numbers only at this stage");
 }
