@@ -21,8 +21,8 @@ fn ask_scale() {
             .read_line(&mut scale) 
             .expect("Error reading line");
 
-        let scale: String = match scale.trim().parse() {
-            Ok(str) => str,
+        let scale: String = match scale.trim().parse(){
+            Ok(str) => return check_scale(scale),
             Err(_) => return number_error(),
 
         };
@@ -58,8 +58,18 @@ fn ask_degrees() {
 }
 
 // These will print different messages based on what is wrong
+fn check_scale(scale: String) {
+    if scale == "C" {
+        println!("You picked: Celcius");
+    } else if scale == "F" {
+        println!("You picked: Fahrenheit");
+    } else {
+        number_error();
+    }
+}
+
 fn number_error() {
-    println!("Please use c, C, f, or F");
+    println!("Please use C or F");
 }
 
 fn word_error() {
