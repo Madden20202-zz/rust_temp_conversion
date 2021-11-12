@@ -1,5 +1,4 @@
 use std::io;
-use std::cmp;
 
 fn main() {
     ask_scale();
@@ -29,6 +28,9 @@ fn ask_degrees() {
 
     println!("What is the Tempurature?");
 
+    // loop added to ask after a word is put in 
+    // currently it only breaks out of the loop 
+    // must research how to put an error message in
     loop {
         io::stdin()
             .read_line(&mut degree)
@@ -37,11 +39,16 @@ fn ask_degrees() {
         let degree: i16 = match degree.trim().parse() {
             Ok(num) => num,
             // ends the operation if input isnt a number
-            Err(_) => break, 
+            Err(_) => return word_error(), 
         };
 
         println!("Did you say {}", degree);
         break;
     }
 
+}
+
+fn word_error() {
+
+    println!("Numbers only at this stage");
 }
