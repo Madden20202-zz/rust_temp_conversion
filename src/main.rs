@@ -19,6 +19,12 @@ fn ask_scale() {
     io::stdin()
         .read_line(&mut scale)
         .expect("Please input C or F");
+    
+    let scale: i16 = match scale.trim().parse() {
+        Ok(num) => num,
+        Err(_) => return number_error(),
+
+    };
     println!("You put {}", scale);
 }
 
@@ -46,6 +52,11 @@ fn ask_degrees() {
         break;
     }
 
+}
+
+// These will print different messages based on what is wrong
+fn number_error() {
+    println!("Please use c, C, f, or F")
 }
 
 fn word_error() {
