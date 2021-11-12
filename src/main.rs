@@ -21,8 +21,8 @@ fn ask_scale() {
             .read_line(&mut scale) 
             .expect("Error reading line");
 
-        let scale: i16 = match scale.trim().parse() {
-            Ok(num) => num,
+        let scale: String = match scale.trim().parse() {
+            Ok(str) => str,
             Err(_) => return number_error(),
 
         };
